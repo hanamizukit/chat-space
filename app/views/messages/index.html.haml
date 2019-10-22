@@ -1,0 +1,69 @@
+.wrapper
+
+  = render 'shared/side_bar'
+
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          グループ名
+        %ul.left-header__members
+          Member：
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+      .right-header
+        .right-header__button
+          Edit
+    .messages
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+
+    -# .form
+    -#   = form_for [@group, @message] do |f|
+    -#     .input-box
+    -#       = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+    -#       = f.label        :image, class: 'input-box__image' do
+    -#         = fa_icon 'picture-o', class: 'icon'
+    -#         = f.file_field :image, class: 'input-box__image__file',type: 'file'
+    -#     = f.submit 'Send',         class: 'submit-btn'
+
+
+    .form
+      %form
+        .form__box
+          %input.form__box__message{placeholder: 'type a message'}
+          .form__box__mask
+            %label.form__box__mask__image
+              = fa_icon 'picture-o', class: 'icon'
+              %input.hidden{type: 'file'}
+
+        %input.form__submit{type: 'submit', value: 'Send'}
