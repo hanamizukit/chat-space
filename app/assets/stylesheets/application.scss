@@ -1,8 +1,14 @@
+//設定ファイル
 @import "font-awesome";
-@import "config/colors";
-@import "config/font-size";
 @import "config/reset";
-@import "mixins/vendor_prefix";
-@import "modules/side_bar";
+//変数とMixin系
+@import "./variable";
+@import "mixins/vendor_prefix.scss";
+@import "config/colors";
+//ビューだけで使うやつ
+@import "modules/flash";
+@import "modules/user";
 @import "modules/chat";
-@import "messages/messages.scss"
+@import "modules/side_bar";
+@import "messages/messages.scss";
+@import "./group";
