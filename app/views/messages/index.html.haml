@@ -19,6 +19,7 @@
         .right-header__button
           Edit
     .messages
+      = render @messages
       .message
         .upper-message
           .upper-message__user-name
@@ -48,12 +49,11 @@
             メッセージ
 
     .form
-      %form
+      = form_for [@group, @message] do |f|
         .form__box
-          %input.form__box__message{placeholder: 'type a message'}
+          = f.text_field :content, class: 'form__box__message', placeholder: 'type a message'
           .form__box__mask
-            %label.form__box__mask__image
+            = f.label :image, class: 'form__box__mask__image' do
               = fa_icon 'picture-o', class: 'icon'
-              %input.hidden{type: 'file'}
-
-        %input.form__submit{type: 'submit', value: 'Send'}
+              = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
