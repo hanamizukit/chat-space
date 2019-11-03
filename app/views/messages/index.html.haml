@@ -1,32 +1,28 @@
 .wrapper
 
   = render 'shared/side_bar'
-
-  .chat
-    .header
-      .left-header
-        .left-header__title
-          グループ名
-        %ul.left-header__members
-          Member：
-          %li.member
-            メンバー名
-          %li.member
-            メンバー名
-          %li.member
-            メンバー名
-      .right-header
-        .right-header__button
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group
+          = @group.name
+        %ul.main-header__left-box__member-list
+          Member:
+          -@group.users.each do|user|
+            %li.main-header__left-box__member-list__member 
+              = user.name  
+      = link_to edit_group_path(@group) do
+        .main-header__edit-btn
           Edit
     .messages
       = render @messages
-
     .form
-      = form_for [@group, @message] do |f|
-        .form__box
-          = f.text_field :content, class: 'form__box__message', placeholder: 'type a message'
-          .form__box__mask
-            = f.label :image, class: 'form__box__mask__image' do
-              = fa_icon 'picture-o', class: 'icon'
-              = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+      %form(class="new_message" id="new_message" action="")
+        %input(name="utf8" type="hidden")
+        %input(name="authenticity_token" type="hidden")
+        .input-box
+          %input(class="input-box__text" placeholder="type a message" type="text")
+          %label(class="input-box__image" for="message_image")
+            %i.fa.fa-image
+            %input(class ="input-box__image__file" id="message_image" type="file" name="message[image]")
+        %input(class = "submit-btn" name="commit" type="submit"value="Send")
