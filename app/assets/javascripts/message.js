@@ -24,9 +24,6 @@ $(function() {
   function go_bottom(scrollclass) {
     $(scrollclass).animate({scrollTop:($(scrollclass).get(0).scrollHeight)});
   }
-  function go_bottom(scrollclass) {
-    $(scrollclass).animate({scrollTop:($(scrollclass).get(0).scrollHeight)});
-  }
   
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
@@ -51,7 +48,7 @@ $(function() {
       alert('error');
     })
     .always(function(){
-      $(".form__submit").removeAttr("disabled", false);
+      $(".submit-btn").removeAttr("disabled", false);
     });
   });
   var reloadMessages = function() {
@@ -76,4 +73,8 @@ $(function() {
       alert('error');
     });
   };
+  var current_path = location.pathname
+  if(current_path.match(/^groups/&&/messages$/)){
+    setInterval(reloadMessages, 5000);
+  }
 });
