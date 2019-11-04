@@ -48,7 +48,7 @@ $(function() {
       alert('error');
     })
     .always(function(){
-      $(".form__submit").removeAttr("disabled", false);
+      $(".submit-btn").removeAttr("disabled", false);
     });
   });
   var reloadMessages = function() {
