@@ -77,3 +77,4 @@ group :development, :test do
 end
 
 gem 'fog-aws'
+gem 'nokogiri','>= 1.10.5'
