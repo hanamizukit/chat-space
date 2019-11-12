@@ -75,6 +75,7 @@ $(function() {
   };
   var current_path = location.pathname
   if(current_path.match(/^groups/&&/messages$/)){
-    setInterval(reloadMessages, 5000);
+    setInterval(reloadMessages, 10000);
   }
 });
+
